@@ -1,4 +1,63 @@
+created:
+    - app/Http/Controllers/AddressController.php
+    - app/Http/Controllers/ApplicationController.php
+    - app/Http/Controllers/CategoryController.php
+    - app/Http/Controllers/ListingController.php
+    - app/Http/Controllers/PositionController.php
+    - app/Http/Controllers/ResumeController.php
+    - app/Http/Controllers/ResumeSettingController.php
+    - app/Http/Controllers/SkillController.php
+    - database/factories/AbuseFactory.php
+    - database/factories/AddressFactory.php
+    - database/factories/ApplicationFactory.php
+    - database/factories/CategoryFactory.php
+    - database/factories/ListingFactory.php
+    - database/factories/PositionFactory.php
+    - database/factories/ResumeFactory.php
+    - database/factories/ResumeSettingFactory.php
+    - database/factories/SkillFactory.php
+    - database/factories/SkillableFactory.php
+    - database/migrations/2020_09_25_191958_create_abuses_table.php
+    - database/migrations/2020_09_25_191959_create_addresses_table.php
+    - database/migrations/2020_09_25_192000_create_applications_table.php
+    - database/migrations/2020_09_25_192001_create_categories_table.php
+    - database/migrations/2020_09_25_192002_create_listings_table.php
+    - database/migrations/2020_09_25_192003_create_positions_table.php
+    - database/migrations/2020_09_25_192004_create_resumes_table.php
+    - database/migrations/2020_09_25_192005_create_resume_settings_table.php
+    - database/migrations/2020_09_25_192006_create_skills_table.php
+    - database/migrations/2020_09_25_192007_create_skillables_table.php
+    - app/Models/Abuse.php
+    - app/Models/Address.php
+    - app/Models/Application.php
+    - app/Models/Category.php
+    - app/Models/Listing.php
+    - app/Models/Position.php
+    - app/Models/Resume.php
+    - app/Models/ResumeSetting.php
+    - app/Models/Skill.php
+    - app/Models/Skillable.php
+    - tests/Feature/Http/Controllers/AddressControllerTest.php
+    - tests/Feature/Http/Controllers/ApplicationControllerTest.php
+    - tests/Feature/Http/Controllers/CategoryControllerTest.php
+    - tests/Feature/Http/Controllers/ListingControllerTest.php
+    - tests/Feature/Http/Controllers/PositionControllerTest.php
+    - tests/Feature/Http/Controllers/ResumeControllerTest.php
+    - tests/Feature/Http/Controllers/ResumeSettingControllerTest.php
+    - tests/Feature/Http/Controllers/SkillControllerTest.php
+updated:
+    - routes/web.php
 models:
     Models\Membership: { team_id: 'biginteger unsigned', user_id: 'biginteger unsigned', role: 'string nullable' }
     Models\Team: { user_id: 'biginteger unsigned', name: string, personal_team: boolean }
     Models\User: { name: string, email: string, email_verified_at: 'datetime nullable', password: string, two_factor_secret: 'text nullable', two_factor_recovery_codes: 'text nullable', remember_token: 'string:100 nullable', current_team_id: 'biginteger unsigned nullable', profile_photo_path: 'text nullable' }
+    Abuse: { user_id: 'id foreign nullable', abusable_id: unsignedBigInteger, abusable_type: string, message: longText, screenshot: string }
+    Address: { addressable_id: unsignedBigInteger, addressable_type: string, location: 'spatialIndex nullable', address_1: string, address_2: 'string nullable', city: string, country: string, postcode: string }
+    Application: { resume_id: 'id foreign:resume.id', listing_id: 'id foreign:listing.id' }
+    Category: { name: 'string:70', description: longText }
+    Listing: { position_id: 'id foreign index', expires: 'timestampTz nullable', published: 'timestampTz nullable' }
+    Position: { team_id: 'id foreign:team.id', title: 'string:140', tagline: 'string 140 nullable', description: longText, remote: 'boolean true', compensation: json, type: 'enum:full-time,part-time,contract,task,bugfix' }
+    Resume: { user_id: 'id foreign:user.id', active: 'boolean false', stack_overflow: 'string:140', cv: string, phone: string, github: 'string:140', linked_in: 'string:140', facebook: 'string:140', instagram: 'string:140', twitter: 'string:140', snapchat: 'string:140' }
+    ResumeSetting: { resume_id: 'id foreign', stack_overflow: 'boolean false', cv: 'boolean false', address: 'boolean false', phone: 'boolean false', github: 'boolean false', linked_in: 'boolean false', facebook: 'boolean false', instagram: 'boolean false', twitter: 'boolean false', snapchat: 'boolean false' }
+    Skill: { category_id: 'id foreign nullable', name: 'string:70' }
+    Skillable: { skill_id: 'id foreign', skillable_type: 'string:80', skillable_id: unsignedBigInteger }
