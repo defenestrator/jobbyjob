@@ -1,14 +1,31 @@
 <?php
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
+namespace Database\Factories;
 
 use App\Models\Listing;
-use Faker\Generator as Faker;
+use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
-$factory->define(Listing::class, function (Faker $faker) {
-    return [
-        'position_id' => factory(\App\Models\Position::class),
-        'expires' => $faker->dateTime(),
-        'published' => $faker->dateTime(),
-    ];
-});
+class ListingFactory extends Factory
+{
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = Listing::class;
+
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        return [
+            'position_id' => factory(\App\Models\Position::class),
+            'expires' => $faker->dateTime(),
+            'published' => $faker->dateTime(),
+        ];
+    }
+}
