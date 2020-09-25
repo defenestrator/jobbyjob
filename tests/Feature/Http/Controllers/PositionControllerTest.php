@@ -64,7 +64,7 @@ class PositionControllerTest extends TestCase
         $title = $this->faker->sentence(4);
         $description = $this->faker->text;
         $remote = $this->faker->boolean;
-        $compensation = $this->faker->;
+        $compensation = json_encode(['salary' => 4000000]);
         $type = $this->faker->randomElement(/** enum_attributes **/);
 
         $response = $this->post(route('position.store'), [
@@ -144,7 +144,7 @@ class PositionControllerTest extends TestCase
         $title = $this->faker->sentence(4);
         $description = $this->faker->text;
         $remote = $this->faker->boolean;
-        $compensation = $this->faker->;
+        $compensation = json_encode(['salary' => 4000000]);
         $type = $this->faker->randomElement(/** enum_attributes **/);
 
         $response = $this->put(route('position.update', $position), [
