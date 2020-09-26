@@ -1,3 +1,23 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+.js-cookie-consent, .cookie-consent {
+    margin: 0 auto;
+    width: 100%;
+    padding:1.2rem;
+    background-color: #42389d;
+    color:white;
+}
+
+.js-cookie-consent-agree, .cookie-consent__agree {
+    color:white;
+    padding:0.2rem;
+    margin-left:1rem;
+    border:1px solid white;
+    border-radius: 0.2rem;
+}
+
+.js-cookie-consent-agree:hover, .cookie-consent__agree:hover {
+    opacity: 0.8;
+}
