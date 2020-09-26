@@ -19,6 +19,7 @@
                 font-family: 'Nunito';
             }
         </style>
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     </head>
     <body class="antialiased">
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
@@ -37,9 +38,9 @@
             @endif
 
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
-                <div class="flex justify-center pt-8 sm:justify-start sm:pt-1" style="color:#5145cd;">
-                    <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
-                    &nbsp;<h1 class="" style="color:#5145cd;"> jobbyjob</h1>
+                <div class="flex items-center justify-center pt-8 sm:justify-start sm:pt-1 text-gray-500">
+                    <svg class="w-16 h-16" fill="none" stroke="#5145cd" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                    &nbsp;<h1 class="" style="font-size:2em; color:#5145cd;"> jobbyjob </h1> <p class="ml-2">&mdash; Free and Open Job Listings System</p>
                 </div>
                 <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
                     <div class="grid grid-cols-1 md:grid-cols-2">
@@ -137,6 +138,8 @@
                     </div>
                 </div>
             </div>
+
         </div>
+        <div style="p-2 w-full fixed bottom bg-gray-500 text-white">@include('cookieConsent::index')</div>
     </body>
 </html>
