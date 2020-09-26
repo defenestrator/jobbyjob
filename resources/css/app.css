@@ -3,21 +3,27 @@
 @import 'tailwindcss/utilities';
 
 .js-cookie-consent, .cookie-consent {
-    margin: 0 auto;
     width: 100%;
-    padding:1.2rem;
+    padding:1rem 2rem;
     background-color: #42389d;
     color:white;
 }
 
+.js-cookie-consent-message, .cookie-consent__message{
+    margin:0.5rem 1rem 0.5rem 0;
+    font-size:0.8rem;
+}
+
 .js-cookie-consent-agree, .cookie-consent__agree {
     color:white;
-    padding:0.2rem;
-    margin-left:1rem;
+    padding:0.2rem 0.5rem;
+    background-color:#4c4c57;
+    margin-top:0.5rem;
     border:1px solid white;
     border-radius: 0.2rem;
 }
 
 .js-cookie-consent-agree:hover, .cookie-consent__agree:hover {
     opacity: 0.8;
+    transition:all 0.25s;
 }

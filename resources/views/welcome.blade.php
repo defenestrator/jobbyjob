@@ -19,7 +19,7 @@
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     </head>
     <body class="antialiased">
-        <div class="sticky top-0 z-10 text-xs">@include('cookieConsent::index')</div>
+        <div class="sticky top-0 z-10 text-sm">@include('cookieConsent::index')</div>
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
             @if (Route::has('login'))
                 <div class="fixed top-0 right-0 px-6 py-4 block">
