@@ -54,11 +54,21 @@ class Resume extends Model
     ];
 
 
+    public function edits()
+    {
+        return $this->morphMany('App\Models\Edit', 'editable');
+    }
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function user()
     {
         return $this->belongsTo(\App\Models\User::class);
+    }
+
+    public function skills()
+    {
+        $this->morphToMany('App\Models\Skill','skillable');
     }
 }

@@ -23,8 +23,8 @@ class SkillFactory extends Factory
     public function definition()
     {
         return [
-            'category_id' => factory(\App\Models\Category::class),
-            'name' => $faker->name,
+            'category_id' => \App\Models\Category::factory()->make(),
+            'name' => $this->faker->name,
         ];
     }
 }

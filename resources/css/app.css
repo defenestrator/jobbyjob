@@ -2,6 +2,11 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+@import url('https://rsms.me/inter/inter.css');
+
+body, html {
+    font-family: 'Inter var experimental', 'Inter var', 'Inter';
+}
 .js-cookie-consent, .cookie-consent {
     width: 100%;
     padding:1rem 2rem;

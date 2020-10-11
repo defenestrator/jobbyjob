@@ -22,7 +22,7 @@ class ApplicationControllerTest extends TestCase
      */
     public function index_displays_view()
     {
-        $applications = factory(Application::class, 3)->create();
+        $applications = Application::factory()->times(3)->create();
 
         $response = $this->get(route('application.index'));
 
@@ -61,8 +61,8 @@ class ApplicationControllerTest extends TestCase
      */
     public function store_saves_and_redirects()
     {
-        $resume = factory(Resume::class)->create();
-        $listing = factory(Listing::class)->create();
+        $resume = Resume::factory()->create();
+        $listing = Listing::factory()->create();
 
         $response = $this->post(route('application.store'), [
             'resume_id' => $resume->id,
@@ -86,7 +86,7 @@ class ApplicationControllerTest extends TestCase
      */
     public function show_displays_view()
     {
-        $application = factory(Application::class)->create();
+        $application = Application::factory()->create();
 
         $response = $this->get(route('application.show', $application));
 
@@ -101,7 +101,7 @@ class ApplicationControllerTest extends TestCase
      */
     public function edit_displays_view()
     {
-        $application = factory(Application::class)->create();
+        $application = Application::factory()->create();
 
         $response = $this->get(route('application.edit', $application));
 
@@ -128,9 +128,9 @@ class ApplicationControllerTest extends TestCase
      */
     public function update_redirects()
     {
-        $application = factory(Application::class)->create();
-        $resume = factory(Resume::class)->create();
-        $listing = factory(Listing::class)->create();
+        $application = Application::factory()->create();
+        $resume = Resume::factory()->create();
+        $listing = Listing::factory()->create();
 
         $response = $this->put(route('application.update', $application), [
             'resume_id' => $resume->id,
@@ -152,7 +152,7 @@ class ApplicationControllerTest extends TestCase
      */
     public function destroy_deletes_and_redirects()
     {
-        $application = factory(Application::class)->create();
+        $application = Application::factory()->create();
 
         $response = $this->delete(route('application.destroy', $application));
 

@@ -23,11 +23,11 @@ class AbuseFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => factory(\App\Models\User::class),
-            'abusable_id' => $faker->randomNumber(),
-            'abusable_type' => $faker->word,
-            'message' => $faker->text,
-            'screenshot' => $faker->word,
+            'user_id' => \App\Models\User::factory()->make(),
+            'abusable_id' => $this->faker->numberBetween(1,10),
+            'abusable_type' => $this->faker->word,
+            'message' => $this->faker->text,
+            'screenshot' => $this->faker->word,
         ];
     }
 }

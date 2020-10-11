@@ -8,7 +8,7 @@ models:
   Address:
     addressable_id: unsignedBigInteger
     addressable_type: string
-    location: spatialIndex nullable
+    location: point spatialIndex nullable
     address_1: string
     address_2: string nullable
     city: string

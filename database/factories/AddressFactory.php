@@ -22,15 +22,15 @@ class AddressFactory extends Factory
      */
     public function definition()
     {
+        $addressables = ['App\Models\Team', 'App\Models\User', 'App\Models\Resume'];
         return [
-            'addressable_id' => $faker->randomNumber(),
-            'addressable_type' => $faker->word,
-            'location' => $faker->word,
-            'address_1' => $faker->word,
-            'address_2' => $faker->word,
-            'city' => $faker->city,
-            'country' => $faker->country,
-            'postcode' => $faker->postcode,
+            'addressable_id' => $this->faker->numberBetween(1,10),
+            'addressable_type' => $this->faker->randomElement($addressables),
+            'address_1' => $this->faker->address,
+            'address_2' => $this->faker->buildingNumber,
+            'city' => $this->faker->city,
+            'country' => $this->faker->country,
+            'postcode' => $this->faker->postcode,
         ];
     }
 }

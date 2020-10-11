@@ -17,23 +17,28 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+Route::middleware(['auth:sanctum'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
 
-Route::resource('address', 'AddressController');
+Route::namespace('App\Http\Controllers')->group( function()
+{
+    Route::resource('address', 'AddressController');
 
-Route::resource('application', 'ApplicationController');
+    Route::resource('application', 'ApplicationController');
 
-Route::resource('category', 'CategoryController');
+    Route::resource('category', 'CategoryController');
 
-Route::resource('listing', 'ListingController');
+    Route::resource('listing', 'ListingController');
+    Route::name('listing.show')->get('listing/{id}', 'ListingController@show');
 
-Route::resource('position', 'PositionController');
+    Route::resource('position', 'PositionController');
 
-Route::resource('resume', 'ResumeController');
+    Route::resource('resume', 'ResumeController');
 
-Route::get('resume-setting/toggle', 'ResumeSettingController@toggle');
+    Route::get('resume-setting/toggle', 'ResumeSettingController@toggle');
 
-Route::resource('skill', 'SkillController');
+    Route::resource('skill', 'SkillController');
+});
+

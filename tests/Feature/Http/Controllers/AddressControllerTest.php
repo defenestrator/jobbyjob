@@ -20,7 +20,7 @@ class AddressControllerTest extends TestCase
      */
     public function index_displays_view()
     {
-        $addresses = factory(Address::class, 3)->create();
+        $addresses = Address::factory()->times(3)->create();
 
         $response = $this->get(route('address.index'));
 
@@ -96,7 +96,7 @@ class AddressControllerTest extends TestCase
      */
     public function show_displays_view()
     {
-        $address = factory(Address::class)->create();
+        $address = Address::factory()->create();
 
         $response = $this->get(route('address.show', $address));
 
@@ -111,7 +111,7 @@ class AddressControllerTest extends TestCase
      */
     public function edit_displays_view()
     {
-        $address = factory(Address::class)->create();
+        $address = Address::factory()->create();
 
         $response = $this->get(route('address.edit', $address));
 
@@ -138,7 +138,7 @@ class AddressControllerTest extends TestCase
      */
     public function update_redirects()
     {
-        $address = factory(Address::class)->create();
+        $address = Address::factory()->create();
         $addressable_id = $this->faker->randomNumber();
         $addressable_type = $this->faker->word;
         $address_1 = $this->faker->word;
@@ -174,7 +174,7 @@ class AddressControllerTest extends TestCase
      */
     public function destroy_deletes_and_redirects()
     {
-        $address = factory(Address::class)->create();
+        $address = Address::factory()->create();
 
         $response = $this->delete(route('address.destroy', $address));
 

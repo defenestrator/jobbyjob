@@ -22,10 +22,11 @@ class ListingFactory extends Factory
      */
     public function definition()
     {
+        $position = \App\Models\Position::factory()->create();
         return [
-            'position_id' => factory(\App\Models\Position::class),
-            'expires' => $faker->dateTime(),
-            'published' => $faker->dateTime(),
+            'position_id' => $position->id,
+            'expires' => $this->faker->dateTime(),
+            'published' => $this->faker->dateTime(),
         ];
     }
 }

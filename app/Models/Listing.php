@@ -25,7 +25,7 @@ class Listing extends Model
         'expires',
         'published',
     ];
-
+    protected $guarded = ['id'];
     /**
      * The attributes that should be cast to native types.
      *
@@ -54,4 +54,10 @@ class Listing extends Model
     {
         return $this->belongsTo(\App\Models\Position::class);
     }
+
+    public function scopeActive($query)
+    {
+        return $query->where([ ['expires', '!=', null], ['published', '!=', null] ] );
+    }
+
 }

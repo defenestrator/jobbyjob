@@ -23,8 +23,8 @@ class ApplicationFactory extends Factory
     public function definition()
     {
         return [
-            'resume_id' => factory(\App\Models\Resume::class),
-            'listing_id' => factory(\App\Models\Listing::class),
+            'resume_id' => \App\Models\Resume::factory()->create()->id,
+            'listing_id' => \App\Models\Listing::factory()->create()->id,
         ];
     }
 }

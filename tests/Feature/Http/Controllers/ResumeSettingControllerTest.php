@@ -18,7 +18,7 @@ class ResumeSettingControllerTest extends TestCase
      */
     public function toggle_displays_view()
     {
-        $resumeSettings = factory(ResumeSetting::class, 3)->create();
+        $resumeSettings = ResumeSetting::factory()->times(3)->create();
 
         $response = $this->get(route('resume-setting.toggle'));
 

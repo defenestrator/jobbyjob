@@ -22,10 +22,11 @@ class SkillableFactory extends Factory
      */
     public function definition()
     {
+        $skillables = ['App\Models\Resume', 'App\Models\Position'];
         return [
-            'skill_id' => factory(\App\Models\Skill::class),
-            'skillable_type' => $faker->word,
-            'skillable_id' => $faker->randomNumber(),
+            'skill_id' => $this->faker->numberBetween(1,964),
+            'skillable_type' => $this->faker->randomElement($skillables),
+            'skillable_id' => $this->faker->numberBetween(1, 30),
         ];
     }
 }

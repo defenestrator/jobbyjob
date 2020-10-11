@@ -21,7 +21,7 @@ class ResumeControllerTest extends TestCase
      */
     public function index_displays_view()
     {
-        $resumes = factory(Resume::class, 3)->create();
+        $resumes = Resume::factory()->times(3)->create();
 
         $response = $this->get(route('resume.index'));
 
@@ -60,7 +60,7 @@ class ResumeControllerTest extends TestCase
      */
     public function store_saves_and_redirects()
     {
-        $user = factory(User::class)->create();
+        $user = User::factory()->create();
         $active = $this->faker->boolean;
         $stack_overflow = $this->faker->word;
         $cv = $this->faker->word;
@@ -112,7 +112,7 @@ class ResumeControllerTest extends TestCase
      */
     public function show_displays_view()
     {
-        $resume = factory(Resume::class)->create();
+        $resume = Resume::factory()->create();
 
         $response = $this->get(route('resume.show', $resume));
 
@@ -127,7 +127,7 @@ class ResumeControllerTest extends TestCase
      */
     public function edit_displays_view()
     {
-        $resume = factory(Resume::class)->create();
+        $resume = Resume::factory()->create();
 
         $response = $this->get(route('resume.edit', $resume));
 
@@ -154,8 +154,8 @@ class ResumeControllerTest extends TestCase
      */
     public function update_redirects()
     {
-        $resume = factory(Resume::class)->create();
-        $user = factory(User::class)->create();
+        $resume = Resume::factory()->create();
+        $user = User::factory()->create();
         $active = $this->faker->boolean;
         $stack_overflow = $this->faker->word;
         $cv = $this->faker->word;
@@ -205,7 +205,7 @@ class ResumeControllerTest extends TestCase
      */
     public function destroy_deletes_and_redirects()
     {
-        $resume = factory(Resume::class)->create();
+        $resume = Resume::factory()->create();
 
         $response = $this->delete(route('resume.destroy', $resume));
 

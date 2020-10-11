@@ -21,7 +21,7 @@ class ListingControllerTest extends TestCase
      */
     public function index_displays_view()
     {
-        $listings = factory(Listing::class, 3)->create();
+        $listings = Listing::factory()->times(3)->create();
 
         $response = $this->get(route('listing.index'));
 
@@ -60,7 +60,7 @@ class ListingControllerTest extends TestCase
      */
     public function store_saves_and_redirects()
     {
-        $position = factory(Position::class)->create();
+        $position = Position::factory()->create();
 
         $response = $this->post(route('listing.store'), [
             'position_id' => $position->id,
@@ -82,7 +82,7 @@ class ListingControllerTest extends TestCase
      */
     public function show_displays_view()
     {
-        $listing = factory(Listing::class)->create();
+        $listing = Listing::factory()->create();
 
         $response = $this->get(route('listing.show', $listing));
 
@@ -97,7 +97,7 @@ class ListingControllerTest extends TestCase
      */
     public function edit_displays_view()
     {
-        $listing = factory(Listing::class)->create();
+        $listing = Listing::factory()->create();
 
         $response = $this->get(route('listing.edit', $listing));
 
@@ -124,8 +124,8 @@ class ListingControllerTest extends TestCase
      */
     public function update_redirects()
     {
-        $listing = factory(Listing::class)->create();
-        $position = factory(Position::class)->create();
+        $listing = Listing::factory()->create();
+        $position = Position::factory()->create();
 
         $response = $this->put(route('listing.update', $listing), [
             'position_id' => $position->id,
@@ -145,7 +145,7 @@ class ListingControllerTest extends TestCase
      */
     public function destroy_deletes_and_redirects()
     {
-        $listing = factory(Listing::class)->create();
+        $listing = Listing::factory()->create();
 
         $response = $this->delete(route('listing.destroy', $listing));
 

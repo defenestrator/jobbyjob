@@ -36,6 +36,11 @@ class Application extends Model
     ];
 
 
+    public function edits()
+    {
+        return $this->morphMany('App\Models\Edit', 'editable');
+    }
+    
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

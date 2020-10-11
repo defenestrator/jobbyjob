@@ -23,17 +23,17 @@ class ResumeSettingFactory extends Factory
     public function definition()
     {
         return [
-            'resume_id' => factory(\App\Models\Resume::class),
-            'stack_overflow' => $faker->boolean,
-            'cv' => $faker->boolean,
-            'address' => $faker->boolean,
-            'phone' => $faker->phoneNumber,
-            'github' => $faker->boolean,
-            'linked_in' => $faker->boolean,
-            'facebook' => $faker->boolean,
-            'instagram' => $faker->boolean,
-            'twitter' => $faker->boolean,
-            'snapchat' => $faker->boolean,
+            'resume_id' => \App\Models\Resume::factory()->make(),
+            'stack_overflow' => $this->faker->boolean,
+            'cv' => $this->faker->boolean,
+            'address' => $this->faker->boolean,
+            'phone' => $this->faker->phoneNumber,
+            'github' => $this->faker->boolean,
+            'linked_in' => $this->faker->boolean,
+            'facebook' => $this->faker->boolean,
+            'instagram' => $this->faker->boolean,
+            'twitter' => $this->faker->boolean,
+            'snapchat' => $this->faker->boolean,
         ];
     }
 }

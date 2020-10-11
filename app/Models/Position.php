@@ -54,4 +54,14 @@ class Position extends Model
     {
         return $this->belongsTo(\App\Models\Team::class);
     }
+
+    public function edits()
+    {
+        return $this->morphMany('App\Models\Edit', 'editable');
+    }
+
+    public function skills()
+    {
+        $this->morphToMany('App\Models\Skill','skillable');
+    }
 }

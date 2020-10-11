@@ -20,7 +20,7 @@ class SkillControllerTest extends TestCase
      */
     public function index_displays_view()
     {
-        $skills = factory(Skill::class, 3)->create();
+        $skills = Skill::factory()->times(3)->create();
 
         $response = $this->get(route('skill.index'));
 
@@ -81,7 +81,7 @@ class SkillControllerTest extends TestCase
      */
     public function show_displays_view()
     {
-        $skill = factory(Skill::class)->create();
+        $skill = Skill::factory()->create();
 
         $response = $this->get(route('skill.show', $skill));
 
@@ -96,7 +96,7 @@ class SkillControllerTest extends TestCase
      */
     public function edit_displays_view()
     {
-        $skill = factory(Skill::class)->create();
+        $skill = Skill::factory()->create();
 
         $response = $this->get(route('skill.edit', $skill));
 
@@ -123,7 +123,7 @@ class SkillControllerTest extends TestCase
      */
     public function update_redirects()
     {
-        $skill = factory(Skill::class)->create();
+        $skill = Skill::factory()->create();
         $name = $this->faker->name;
 
         $response = $this->put(route('skill.update', $skill), [
@@ -144,7 +144,7 @@ class SkillControllerTest extends TestCase
      */
     public function destroy_deletes_and_redirects()
     {
-        $skill = factory(Skill::class)->create();
+        $skill = Skill::factory()->create();
 
         $response = $this->delete(route('skill.destroy', $skill));
 

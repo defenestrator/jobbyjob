@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ListingStoreRequest;
 use App\Http\Requests\ListingUpdateRequest;
 use App\Models\Listing;
+use App\Models\Position;
 use Illuminate\Http\Request;
 
 class ListingController extends Controller
@@ -15,7 +16,7 @@ class ListingController extends Controller
      */
     public function index(Request $request)
     {
-        $listings = Listing::all();
+        $listings = Listing::active()->with('position')->get();
 
         return view('listing.index', compact('listings'));
     }
@@ -47,9 +48,12 @@ class ListingController extends Controller
      * @param \App\Models\Listing $listing
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, Listing $listing)
+    public function show(Request $request, Listing $listing, Position $position)
     {
-        return view('listing.show', compact('listing'));
+        $model = $position->find($listing->position_id);
+        $skills = $model->with('skills');
+
+        return view('listing.show', compact('listing', 'skills'));
     }
 
     /**

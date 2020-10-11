@@ -21,7 +21,7 @@ class PositionControllerTest extends TestCase
      */
     public function index_displays_view()
     {
-        $positions = factory(Position::class, 3)->create();
+        $positions = Position::factory()->times(3)->create();
 
         $response = $this->get(route('position.index'));
 
@@ -60,7 +60,7 @@ class PositionControllerTest extends TestCase
      */
     public function store_saves_and_redirects()
     {
-        $team = factory(Team::class)->create();
+        $team = Team::factory()->create();
         $title = $this->faker->sentence(4);
         $description = $this->faker->text;
         $remote = $this->faker->boolean;
@@ -97,7 +97,7 @@ class PositionControllerTest extends TestCase
      */
     public function show_displays_view()
     {
-        $position = factory(Position::class)->create();
+        $position = Position::factory()->create();
 
         $response = $this->get(route('position.show', $position));
 
@@ -112,7 +112,7 @@ class PositionControllerTest extends TestCase
      */
     public function edit_displays_view()
     {
-        $position = factory(Position::class)->create();
+        $position = Position::factory()->create();
 
         $response = $this->get(route('position.edit', $position));
 
@@ -139,8 +139,8 @@ class PositionControllerTest extends TestCase
      */
     public function update_redirects()
     {
-        $position = factory(Position::class)->create();
-        $team = factory(Team::class)->create();
+        $position = Position::factory()->create();
+        $team = Team::factory()->create();
         $title = $this->faker->sentence(4);
         $description = $this->faker->text;
         $remote = $this->faker->boolean;
@@ -175,7 +175,7 @@ class PositionControllerTest extends TestCase
      */
     public function destroy_deletes_and_redirects()
     {
-        $position = factory(Position::class)->create();
+        $position = Position::factory()->create();
 
         $response = $this->delete(route('position.destroy', $position));
 

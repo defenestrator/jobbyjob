@@ -42,4 +42,14 @@ class Skill extends Model
     {
         return $this->belongsTo(\App\Models\Category::class);
     }
+
+    public function positions()
+    {
+        return $this->morphedByMany('App\Models\Position', 'skillable');
+    }
+
+    public function resumes()
+    {
+        return $this->morphedByMany('App\Models\Resume', 'skillable');
+    }
 }

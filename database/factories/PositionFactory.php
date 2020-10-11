@@ -22,14 +22,15 @@ class PositionFactory extends Factory
      */
     public function definition()
     {
+
         return [
-            'team_id' => factory(\App\Models\Team::class),
-            'title' => $faker->sentence(4),
-            'tagline' => $faker->word,
-            'description' => $faker->text,
-            'remote' => $faker->boolean,
+            'team_id' => \App\Models\Team::factory()->create()->id,
+            'title' => $this->faker->sentence(4),
+            'tagline' => $this->faker->word,
+            'description' => $this->faker->text,
+            'remote' => $this->faker->boolean,
             'compensation' => '{}',
-            'type' => $faker->randomElement(["full-time","part-time","contract","task","bugfix"]),
+            'type' => $this->faker->randomElement(["full-time","part-time","contract","task","bugfix"]),
         ];
     }
 }

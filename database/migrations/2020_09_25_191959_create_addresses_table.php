@@ -19,7 +19,7 @@ class CreateAddressesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('addressable_id');
             $table->string('addressable_type');
-            $table->string('location')->nullable();
+            $table->point('location')->nullable();
             $table->string('address_1');
             $table->string('address_2')->nullable();
             $table->string('city');

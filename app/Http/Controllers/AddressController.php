@@ -16,7 +16,6 @@ class AddressController extends Controller
     public function index(Request $request)
     {
         $addresses = Address::all();
-
         return view('address.index', compact('addresses'));
     }
 

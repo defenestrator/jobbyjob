@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a00a6b93735a50685953e647b54288ae",
+    "content-hash": "f01e2a55cb1298034126a8b02278c509",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -195,6 +195,45 @@
                 "map"
             ],
             "time": "2020-07-30T16:37:13+00:00"
+        },
+        {
+            "name": "defenestrator/laravel-immutable-eloquent",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/defenestrator/Immutable.git",
+                "reference": "e2c96f5a32e78c5047d66081ec5a070fc7aa21e7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/defenestrator/Immutable/zipball/e2c96f5a32e78c5047d66081ec5a070fc7aa21e7",
+                "reference": "e2c96f5a32e78c5047d66081ec5a070fc7aa21e7",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "*"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Defenestrator\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeremy Anderson",
+                    "email": "529446+defenestrator@users.noreply.github.com"
+                }
+            ],
+            "description": "Immutable trait for Laravel Eloquent models.",
+            "time": "2020-10-10T17:12:37+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -7417,7 +7456,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "defenestrator/laravel-immutable-eloquent": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

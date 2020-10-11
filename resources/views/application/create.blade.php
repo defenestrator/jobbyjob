@@ -1,5 +1,3 @@
-@extends('layouts.app')
-
-@section('content')
-    application.create template
-@endsection
+<x-app-layout>
+    <
+</x-app-layout>

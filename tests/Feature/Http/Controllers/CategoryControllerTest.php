@@ -20,7 +20,7 @@ class CategoryControllerTest extends TestCase
      */
     public function index_displays_view()
     {
-        $categories = factory(Category::class, 3)->create();
+        $categories = Category::factory()->times(3)->create();
 
         $response = $this->get(route('category.index'));
 
@@ -84,7 +84,7 @@ class CategoryControllerTest extends TestCase
      */
     public function show_displays_view()
     {
-        $category = factory(Category::class)->create();
+        $category = Category::factory()->create();
 
         $response = $this->get(route('category.show', $category));
 
@@ -99,7 +99,7 @@ class CategoryControllerTest extends TestCase
      */
     public function edit_displays_view()
     {
-        $category = factory(Category::class)->create();
+        $category = Category::factory()->create();
 
         $response = $this->get(route('category.edit', $category));
 
@@ -126,7 +126,7 @@ class CategoryControllerTest extends TestCase
      */
     public function update_redirects()
     {
-        $category = factory(Category::class)->create();
+        $category = Category::factory()->create();
         $name = $this->faker->name;
         $description = $this->faker->text;
 
@@ -150,7 +150,7 @@ class CategoryControllerTest extends TestCase
      */
     public function destroy_deletes_and_redirects()
     {
-        $category = factory(Category::class)->create();
+        $category = Category::factory()->create();
 
         $response = $this->delete(route('category.destroy', $category));
 
