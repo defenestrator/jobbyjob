@@ -20,16 +20,23 @@ class DatabaseSeeder extends Seeder
         foreach($skills as $skill) {
             \App\Models\Skill::create(['name' => $skill]);
         }
-
         \App\Models\Application::factory()->times(10)->create();
-        $skillables = ['App\Models\Resume', 'App\Models\Position'];
-        // the final countdooooown
-        for($i = 50; $i > 0; $i -=1 ) {
-            DB::table('skillables')->insert([
-                'skill_id' => rand(1,964),
-                'skillable_type' => $skillables[array_rand($skillables)],
-                'skillable_id' => rand(1, 10),
-            ]);
-        }
+
+        $skillable = \App\Models\Skill::all();
+
+        \App\Models\Resume::all()->each( function ($resume) use ($skillable){
+            $resume->skills()->attach(
+                $skillable->random(rand(5,13))->pluck('id')->toArray()
+            );
+        });
+
+        \App\Models\Position::all()->each( function ($position) use ($skillable){
+            $position->skills()->attach(
+                $skillable->random(rand(5,13))->pluck('id')->toArray()
+            );
+        });
+
     }
+
 }
+

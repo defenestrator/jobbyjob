@@ -18,7 +18,7 @@ class CreateApplicationsTable extends Migration
         Schema::create('applications', function (Blueprint $table) {
             $table->id();
             $table->foreignId('resume_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('listing_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('position_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
 

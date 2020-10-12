@@ -18,6 +18,8 @@ class CreatePositionsTable extends Migration
         Schema::create('positions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('team_id')->constrained()->cascadeOnDelete();
+            $table->timestampTz('expires')->nullable();
+            $table->timestampTz('published')->nullable();
             $table->string('title', 140);
             $table->string('tagline')->nullable();
             $table->longText('description');

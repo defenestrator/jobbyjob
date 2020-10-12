@@ -16,19 +16,18 @@ body, html {
 
 .js-cookie-consent-message, .cookie-consent__message{
     margin:0.5rem 1rem 0.5rem 0;
-    font-size:0.8rem;
 }
 
 .js-cookie-consent-agree, .cookie-consent__agree {
     color:white;
     padding:0.2rem 0.5rem;
-    background-color:#4c4c57;
+    background-color:#5f5f63;
     margin-top:0.5rem;
     border:1px solid white;
-    border-radius: 0.2rem;
+    border-radius: 0.4rem;
 }
 
 .js-cookie-consent-agree:hover, .cookie-consent__agree:hover {
-    opacity: 0.8;
+    opacity: 0.88;
     transition:all 0.25s;
 }

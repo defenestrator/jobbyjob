@@ -12,6 +12,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property string $description
  * @property bool $remote
  * @property string $compensation
+ * @property \Carbon\Carbon $published
+ * @property \Carbon\Carbon $expires
  * @property string $type
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
@@ -31,6 +33,8 @@ class Position extends Model
         'description',
         'remote',
         'compensation',
+        'expires',
+        'published',
         'type',
     ];
 
@@ -44,6 +48,16 @@ class Position extends Model
         'team_id' => 'integer',
         'remote' => 'boolean',
         'compensation' => 'array',
+    ];
+
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = [
+        'expires',
+        'published',
     ];
 
 
@@ -62,6 +76,11 @@ class Position extends Model
 
     public function skills()
     {
-        $this->morphToMany('App\Models\Skill','skillable');
+        return $this->morphToMany('App\Models\Skill','skillable');
+    }
+
+    public function scopeActive($query)
+    {
+        return $query->where([ ['expires', '!=', null], ['published', '!=', null] ] );
     }
 }

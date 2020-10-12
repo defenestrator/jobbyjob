@@ -45,4 +45,9 @@ class Address extends Model
         'id' => 'integer',
         'addressable_id' => 'integer',
     ];
+
+    public function addressable()
+    {
+        return $this->morphTo();
+    }
 }

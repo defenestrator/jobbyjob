@@ -18,16 +18,12 @@ class CreateResumeSettingsTable extends Migration
         Schema::create('resume_settings', function (Blueprint $table) {
             $table->id();
             $table->foreignId('resume_id')->constrained()->cascadeOnDelete();
-            $table->boolean('stack_overflow');
-            $table->boolean('cv');
-            $table->boolean('address');
-            $table->boolean('phone');
-            $table->boolean('github');
-            $table->boolean('linked_in');
-            $table->boolean('facebook');
-            $table->boolean('instagram');
-            $table->boolean('twitter');
-            $table->boolean('snapchat');
+            $table->boolean('stack_overflow_visible')->default(false);
+            $table->boolean('cv_visible')->default(false);
+            $table->boolean('address_visible')->default(false);
+            $table->boolean('phone_visible')->default(false);
+            $table->boolean('github_visible')->default(false);
+            $table->boolean('linked_in_visible')->default(false);
             $table->timestamps();
         });
 

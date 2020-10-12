@@ -15,7 +15,7 @@ class PositionController extends Controller
      */
     public function index(Request $request)
     {
-        $positions = Position::all();
+        $positions = Position::active()->paginate();
 
         return view('position.index', compact('positions'));
     }

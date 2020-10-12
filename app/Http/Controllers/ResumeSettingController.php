@@ -11,10 +11,15 @@ class ResumeSettingController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function toggle(Request $request)
+    public function toggle(Request $request, $resume_id, $column)
     {
-        $resumeSettings = ResumeSetting::where('resume_id', $resume_id)->get();
+        dd($column);
+        $resumeSettings = ResumeSetting::where('resume_id', $resume_id)->get($column);
+        dd($resumeSettings);
+        $resumeSettings->update([
+            $column => !$column
+        ]);
 
-        return view('resume.show');
+        return view('resume.show', $resumeSettings->toArray());
     }
 }

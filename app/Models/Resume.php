@@ -13,10 +13,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property string $phone
  * @property string $github
  * @property string $linked_in
- * @property string $facebook
- * @property string $instagram
- * @property string $twitter
- * @property string $snapchat
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  */
@@ -36,10 +32,6 @@ class Resume extends Model
         'phone',
         'github',
         'linked_in',
-        'facebook',
-        'instagram',
-        'twitter',
-        'snapchat',
     ];
 
     /**
@@ -69,6 +61,11 @@ class Resume extends Model
 
     public function skills()
     {
-        $this->morphToMany('App\Models\Skill','skillable');
+        return $this->morphToMany(Skill::class,'skillable');
+    }
+
+    public function address()
+    {
+        return $this->morphOne(App\Models\Address::class, 'adddressable');
     }
 }

@@ -16,12 +16,11 @@
         <!-- Scripts -->
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.2.1/dist/alpine.js" defer></script>
     </head>
-    <body>
-
+    <body class="font-sans antialiased">
+        <div class="min-h-screen bg-gray-100">
+        @include('cookieConsent::index')
         <div class="font-sans text-gray-900 antialiased">
             {{ $slot }}
-            //in your blade template
-            @include('cookieConsent::index')
         </div>
 
     </body>

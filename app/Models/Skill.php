@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * @property int $id
- * @property int $category_id
+
  * @property string $name
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
@@ -20,7 +20,6 @@ class Skill extends Model
      * @var array
      */
     protected $fillable = [
-        'category_id',
         'name',
     ];
 
@@ -31,25 +30,15 @@ class Skill extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'category_id' => 'integer',
     ];
-
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function category()
-    {
-        return $this->belongsTo(\App\Models\Category::class);
-    }
 
     public function positions()
     {
-        return $this->morphedByMany('App\Models\Position', 'skillable');
+        return $this->morphedByMany(Position::class, 'skillable');
     }
 
     public function resumes()
     {
-        return $this->morphedByMany('App\Models\Resume', 'skillable');
+        return $this->morphedByMany(Resume::class, 'skillable');
     }
 }

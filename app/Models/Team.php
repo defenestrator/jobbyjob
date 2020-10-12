@@ -41,4 +41,9 @@ class Team extends JetstreamTeam
         'updated' => TeamUpdated::class,
         'deleted' => TeamDeleted::class,
     ];
+
+    public function address()
+    {
+        return $this->morphOne('App\Models\Address', 'adddressable');
+    }
 }

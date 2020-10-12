@@ -1,36 +1,10 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>{{config('app.name')}}</title>
-
-        <!-- Fonts -->
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    </head>
-    <body class="antialiased">
-        <div class="sticky top-0 z-10 text-sm">@include('cookieConsent::index')</div>
+<x-guest-layout>
+    @livewire('navigation-dropdown')
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
-            @if (Route::has('login'))
-                <div class="fixed top-0 right-0 px-6 py-4 block">
-                    @auth
-                        <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700">Dashboard</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700">Register</a>
-                        @endif
-                    @endif
-                </div>
-            @endif
-
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
-
                 <div class="flex items-center justify-center pt-8 sm:justify-start sm:pt-1 text-gray-500">
-                    <svg class="w-16 h-16" fill="none" stroke="#5145cd" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
-                    &nbsp;<h1 class="" style="font-size:2em; color:#5145cd;"> jobbyjob </h1> <p class="hidden ml-2 sm:block">&mdash; Free and Open Job Listings System</p>
+                    {{-- <svg class="w-16 h-16" fill="none" stroke="#5145cd" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg> --}}
+                    &nbsp;<h1 class="" style="font-size:2em; color:#5145cd;"> jobbyjob </h1> <p class="hidden ml-2 sm:block">— Free Job Listings</p>
                 </div>
                 <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
                     <div class="grid grid-cols-1 md:grid-cols-2">
@@ -40,7 +14,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2" />
                                   </svg>
 
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="/candidates" class="underline text-gray-900 dark:text-white">Candidates</a></div>
+                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="{{route('positions.index')}}" class="underline text-gray-900 dark:text-white">Candidates</a></div>
                             </div>
 
                             <div class="ml-12">
@@ -57,7 +31,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
                                   </svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="/employers" class="underline text-gray-900 dark:text-white">Employers</a></div>
+                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="{{route('positions.index')}}" class="underline text-gray-900 dark:text-white">Employers</a></div>
                             </div>
 
                             <div class="ml-12">
@@ -77,7 +51,7 @@
                                         d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"
                                     />
                                   </svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="/teams" class="underline text-gray-900 dark:text-white">Teams</a></div>
+                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="{{route('positions.index')}}" class="underline text-gray-900 dark:text-white">Teams</a></div>
                             </div>
 
                             <div class="ml-12">
@@ -94,7 +68,7 @@
                                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500">
                                     <path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold text-gray-900 dark:text-white"><a href="/teams" class="underline text-gray-900 dark:text-white">Listings</a></div>
+                                <div class="ml-4 text-lg leading-7 font-semibold text-gray-900 dark:text-white"><a href="{{route('positions.index')}}" class="underline text-gray-900 dark:text-white">Listings</a></div>
                             </div>
 
                             <div class="ml-12">
@@ -109,7 +83,32 @@
                         </div>
                     </div>
                 </div>
+                <div class="mx-auto">
+                    @foreach($positions as $position)
+                    <div class="my-4 bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                        <div class="m-4 p-4 rounded">
+                        <h3 class="font-semibold text-indigo-700 text-lg"><a href="{{route('positions.show',$position->id)}}">{{$position->title}}</a></h3>
+                        <p>Posted: {{$position->published}}</p>
+                        <div class="my-2 p-2 bg-gray-100 rounded-sm">
+                            <p>{{$position->description}}</p>
+                        </div>
+                        <div class="inline-flex">
+                            <ul>
+                                @foreach($position->skills as $skill)
+                                <a href="{{route('skills.show', $skill->id)}}">
+                                    <li class="inline-block my-2 p-2 rounded bg-indigo-200">{{$skill->name}}</li>
+                                </a>
+                                @endforeach
+                            </ul>
+                        </div>
+                        <p>Expires: {{$position->expires}}</p>
+                        </div>
 
+
+                    </div>
+                    @endforeach
+
+                </div>
                 <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
                     <div class="text-center text-sm text-gray-500 sm:text-left">
                         <div class="flex items-center">
@@ -126,6 +125,7 @@
                     <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
                         Proudly made with Laravel v{{ Illuminate\Foundation\Application::VERSION }}
                     </div>
+
                 </div>
 
 
@@ -133,5 +133,4 @@
 
         </div>
 
-    </body>
-</html>
+</x-guest-layout>

@@ -36,10 +36,6 @@ class ResumeSetting extends Model
         'phone',
         'github',
         'linked_in',
-        'facebook',
-        'instagram',
-        'twitter',
-        'snapchat',
     ];
 
     /**
@@ -68,6 +64,6 @@ class ResumeSetting extends Model
      */
     public function resume()
     {
-        return $this->belongsTo(\App\Models\Resume::class);
+        return $this->belongsTo(Resume::class);
     }
 }
