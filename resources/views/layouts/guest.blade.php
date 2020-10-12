@@ -19,6 +19,7 @@
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
         @include('cookieConsent::index')
+        @livewire('navigation-dropdown')
         <div class="font-sans text-gray-900 antialiased">
             {{ $slot }}
         </div>
