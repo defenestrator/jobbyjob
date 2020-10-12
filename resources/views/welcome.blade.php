@@ -3,7 +3,7 @@
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
                 <div class="flex items-center justify-center pt-8 sm:justify-start sm:pt-1 text-gray-500">
-                    {{-- <svg class="w-16 h-16" fill="none" stroke="#5145cd" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg> --}}
+                    <svg class="w-16 h-16" fill="none" stroke="#5145cd" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
                     &nbsp;<h1 class="" style="font-size:2em; color:#5145cd;"> jobbyjob </h1> <p class="hidden ml-2 sm:block">— Free Job Listings</p>
                 </div>
                 <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
@@ -88,20 +88,20 @@
                     <div class="my-4 bg-white overflow-hidden shadow-xl sm:rounded-lg">
                         <div class="m-4 p-4 rounded">
                         <h3 class="font-semibold text-indigo-700 text-lg"><a href="{{route('positions.show',$position->id)}}">{{$position->title}}</a></h3>
-                        <p>Posted: {{$position->published}}</p>
+
                         <div class="my-2 p-2 bg-gray-100 rounded-sm">
                             <p>{{$position->description}}</p>
                         </div>
                         <div class="inline-flex">
                             <ul>
                                 @foreach($position->skills as $skill)
-                                <a href="{{route('skills.show', $skill->id)}}">
+                                <a class="text-indigo-700 hover:text-indigo-400" href="{{route('skills.show', $skill->id)}}">
                                     <li class="inline-block my-2 p-2 rounded bg-indigo-200">{{$skill->name}}</li>
                                 </a>
                                 @endforeach
                             </ul>
                         </div>
-                        <p>Expires: {{$position->expires}}</p>
+
                         </div>
 
 
