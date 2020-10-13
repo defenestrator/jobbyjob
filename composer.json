@@ -21,6 +21,7 @@
         "spatie/laravel-cookie-consent": "^2.12"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.5",
         "facade/ignition": "^2.3.6",
         "fzaninotto/faker": "^1.9.1",
         "jasonmccreary/laravel-test-assertions": "^1.0",
