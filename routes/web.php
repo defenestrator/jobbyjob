@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $positions = \App\Models\Position::paginate();
+    $positions = \App\Models\Position::active()->orderBy('published', 'desc')->paginate();
     return view('welcome', compact('positions'));
 });
 
@@ -22,19 +22,21 @@ Route::middleware(['auth:sanctum'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-
-Route::middleware(['verified', 'auth:sanctum'])->namespace('App\Http\Controllers')->group( function() {
-
-    Route::resource('addresses', 'AddressController');
-
-    Route::resource('applications', 'ApplicationController');
+Route::namespace('App\Http\Controllers')->group( function() {
 
     Route::resource('positions', 'PositionController');
 
-    Route::resource('resumes', 'ResumeController');
+    Route::middleware(['verified', 'auth:sanctum'])->group( function() {
 
-    Route::get('resume-settings/{resume_id}/{column}', 'ResumeSettingController@toggle');
+        Route::resource('addresses', 'AddressController');
 
-    Route::resource('skills', 'SkillController');
+        Route::resource('applications', 'ApplicationController');
+
+        Route::resource('resumes', 'ResumeController');
+
+        Route::get('resume-settings/{resume_id}/{column}', 'ResumeSettingController@toggle');
+
+        Route::resource('skills', 'SkillController');
+    });
 });
 
