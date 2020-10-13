@@ -26,6 +26,8 @@ Route::namespace('App\Http\Controllers')->group( function() {
 
     Route::resource('positions', 'PositionController');
 
+    Route::resource('skills', 'SkillController');
+
     Route::middleware(['verified', 'auth:sanctum'])->group( function() {
 
         Route::resource('addresses', 'AddressController');
@@ -36,7 +38,7 @@ Route::namespace('App\Http\Controllers')->group( function() {
 
         Route::get('resume-settings/{resume_id}/{column}', 'ResumeSettingController@toggle');
 
-        Route::resource('skills', 'SkillController');
+
     });
 });
 
