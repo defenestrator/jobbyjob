@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
         foreach($skills as $skill) {
             \App\Models\Skill::create(['name' => $skill]);
         }
-        \App\Models\Application::factory()->times(10)->create();
+        \App\Models\Application::factory()->times(10000)->create();
 
         $skillable = \App\Models\Skill::all();
 
