@@ -6,7 +6,7 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
             <div class="my-4 bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="m-4 p-4 rounded">
                 <p>Posted: {{$position->published}} by {{$position->team->name}}</p>

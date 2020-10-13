@@ -23,9 +23,9 @@ class TeamFactory extends Factory
     {
         $user = \App\Models\User::factory()->create();
         return [
-            'name' => $this->faker->name,
-            'user_id' => $user,
-            'personal_team' => rand(0,1),
+            'name' => $user->name,
+            'user_id' => $user->id,
+            'personal_team' => true,
         ];
     }
 }
